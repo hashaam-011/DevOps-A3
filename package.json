@@ -17,12 +17,22 @@
     "url": "git+https://github.com/PKUPI/heavens-above.git"
   },
 
-    "rules": {
-      "no-tabs": "off",
-      "@typescript-eslint/indent": ["error", "tab"],
-      "@typescript-eslint/semi": ["error", "never"]
-    }
-  },
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variableLike",
+        "format": ["camelCase", "UPPER_CASE"]
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      }
+    ],
+    "@typescript-eslint/no-var-requires": "off",
+    "no-tabs": "off"
+   },
 
   "keywords": [
     "Heavens Above",
