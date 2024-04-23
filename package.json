@@ -8,7 +8,7 @@
     "start": "node run.js",
     "lint": "eslint .",
     "test": "echo \"No tests specified\" && exit 0",
-    "build": "tsc"  // Assumes TypeScript is used for compilation
+    "build": "tsc"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
