@@ -1,0 +1,24 @@
+name: Scheduled Maintenance
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs at 00:00 UTC every day
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Run maintenance script
+        run: bash ./scripts/maintenance.sh
+
+      - name: Archive logs
+        run: tar -czvf logs.tar.gz /path/to/logs
+
+      - name: Upload logs to artifact storage
+        uses: actions/upload-artifact@v2
+        with:
+          name: logs
+          path: logs.tar.gz
