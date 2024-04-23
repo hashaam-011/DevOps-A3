@@ -16,24 +16,29 @@
     "type": "git",
     "url": "git+https://github.com/PKUPI/heavens-above.git"
   },
-
-  "rules": {
-    "@typescript-eslint/explicit-function-return-type": "off",
+   "rules": {
     "@typescript-eslint/naming-convention": [
       "error",
       {
-        "selector": "variableLike",
-        "format": ["camelCase", "UPPER_CASE"]
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"],
+        "filter": {
+          "regex": "^(__dirname|__filename)$",
+          "match": false
+        }
       },
+
       {
         "selector": "typeLike",
-        "format": ["PascalCase"]
+        "format": [
+          "PascalCase"
+        ]
       }
     ],
     "@typescript-eslint/no-var-requires": "off",
     "no-tabs": "off"
-   },
 
+  },
   "keywords": [
     "Heavens Above",
     "spider"
@@ -58,6 +63,6 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.34.1",
     "globals": "^15.0.0",
-    "typescript": "^5.4.5"
+    "typescript": "^4.3.5"
   }
 }

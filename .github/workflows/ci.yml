@@ -18,7 +18,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '14'  # Set this to the Node.js version you use
+        node-version: '16.x'  # Set this to the Node.js version you use
 
     - name: Install dependencies
       run: npm install
@@ -31,3 +31,4 @@ jobs:
 
     - name: Run linter
       run: npm run lint
+
