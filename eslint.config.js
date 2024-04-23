@@ -1,11 +1,14 @@
 module.exports = {
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended' // Add any other extended configurations here
-  ],
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'react'], // Add any other plugins here
+  files: ['*.ts', '*.tsx'],
+  languageOptions: {
+    parserOptions: {
+      parser: '@typescript-eslint/parser'
+    }
+  },
+  plugins: {
+    '@typescript-eslint': require('@typescript-eslint/eslint-plugin'), // Load the plugin as an object
+    'react': require('eslint-plugin-react') // Load the React plugin as an object
+  },
   rules: {
     '@typescript-eslint/naming-convention': [
       'error',
@@ -24,5 +27,10 @@ module.exports = {
     ],
     '@typescript-eslint/no-var-requires': 'off',
     'no-tabs': 'off'
-  }
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended'
+  ]
 };
