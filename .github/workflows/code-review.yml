@@ -1,0 +1,45 @@
+name: Code Review Workflow
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify your Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint with ESLint
+        run: npx eslint . --ext .js,.jsx,.ts,.tsx  # Adjust this command based on your project
+
+      - name: Run tests
+        run: npm test
+
+      - name: Security Scan
+        uses: github/codeql-action/analyze@v1  # CodeQL helps you scan for security vulnerabilities
+
+  check-quality-metrics:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Code Quality Metrics
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
