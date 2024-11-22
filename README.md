@@ -35,7 +35,8 @@
 ---
 
 ## **Sample CV**
-You can view my CV [here](Meer%20Hashaam%20Khan%20-%20CV.pdf).
+[View my CV](Meer%20Hashaam%20Khan%20-%20CV.pdf)
+
 
 ---
 
