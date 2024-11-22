@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heavens-above
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: heavens-above
+  template:
+    metadata:
+      labels:
+        app: heavens-above
+    spec:
+      containers:
+      - name: heavens-above
+        image: heavens-above-app:latest
+        ports:
+        - containerPort: 8080
